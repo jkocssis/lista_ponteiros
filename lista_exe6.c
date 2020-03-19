@@ -7,8 +7,11 @@ double media(double vet[], int n, int *i){
        x = x +vet[j];
    } media = x/n;
    for(j=0; j<n;j++){
-       if (*i<vet[j]){
-           *i=vet[j];
+       if (vet[0]>vet[j+1]){//ordena vetor
+           vet[0]=vet[j+1];
+       }
+    for(j=0; j<n;j++){
+       printf("%lf",vet[j]);//imprime o vetor
        }
    }
    return media;

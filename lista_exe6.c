@@ -27,17 +27,29 @@ double media(double vet[], int n, int *i){
    double x=0,media;
    
    int j,mediana;
-   mediana = media/n;
+   if (n%2==0)
+   {
+       mediana = n/2;
+   }else
+   {
+       mediana = (n+1)/2;
+   }  
+   
+   
    *i=vet[mediana];
    ordena(vet,n);
    for(j=0; j<n;j++){
        x = x +vet[j];
    } media = x/n;
    for(j=0; j<n; j++){
-       if (*i < vet[mediana+j] && vet[mediana+j]<=media)
+       if (vet[mediana]-media > vet[mediana+j]-media)
        {
-           *i=vet[mediana+j];
+           *i=vet[mediana];
+       }else
+       {
+          *i=vet[mediana+j];
        }
+       
        
    }
    
@@ -48,8 +60,8 @@ double media(double vet[], int n, int *i){
 
 int main(int argc, char const *argv[])
 {
-    int n=6,prox;
-    double v[]={0, 3.2 ,5 ,4 ,25.4 ,0.1},m;
+    int n=5,prox;
+    double v[]={0, 3.2 ,5,6,15 },m;
     //ordena(v,n);
     imprime(v,n);
     m = media(v,n,&prox);
